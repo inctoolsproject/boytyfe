@@ -6,7 +6,7 @@ from multiprocessing import Pool
 import time,random,sys,json,codecs,threading,glob,re,datetime,urllib2,pickle,requests,base64
 
 cl = LINETCR.LINE()
-cl.login(qr=True)
+cl.login(token="Enabw9D6S4UBQv5Jxb8a.R1+UjDAUJmrKXLmqjUXa2G.wz3LQ+SjUQZnrRpm1hXmfyoHuICfuPWtxKpiLZvSor0=")
 cl.loginResult()
 
 kk = LINETCR.LINE()
@@ -160,7 +160,7 @@ def user1script(op):
             nowM = datetime.datetime.strftime(now2,"%M")
             nowS = datetime.datetime.strftime(now2,"%S")
             tm = "\n\n"+nowT+":"+nowM+":"+nowS
-            kk.sendText(op.param1,"Tyfe พร้อมใช้งานแล้ว (｀・ω・´)"+tm)
+            kk.sendText(op.param1,"พร้อมใช้งานแล้ว"+tm)
         if op.type == 19 and TyfeLogged == True:
             gotkick = op.param3
             kickname = kk.getContact(op.param2).displayName
@@ -357,7 +357,7 @@ def user1script(op):
                 elif msg.text.lower() == ".tyfelogin":
                     if not TyfeLogged:
                         lgncall = msg.to
-                        kk.login(qr=True,callback=logincall)
+                        kk.login(token="EnSJFSKPRZEYuqzafnW5.wzgpaMkLY8msyyBVU5MNbq.56rqly1h2jCdm63VcQDjcd/WSVVo4IOLmbSB51wt+JQ=")
                         kk.loginResult()
                         user2 = kk.getProfile().mid
                         TyfeLogged = True
@@ -366,9 +366,9 @@ def user1script(op):
                         nowM = datetime.datetime.strftime(now2,"%M")
                         nowS = datetime.datetime.strftime(now2,"%S")
                         tm = "\n\n"+nowT+":"+nowM+":"+nowS
-                        kk.sendText(user1,"ล็อกอินสำเร็จ Tyfe พร้อมใช้งานแล้ว (｀・ω・´)"+tm)
+                        kk.sendText(user1,"ล็อกอินสำเร็จ พร้อมใช้งานแล้ว (｀・ω・´)"+tm)
                     else:
-                        cl.sendText(msg.to,"Tyfe ได้ทำการล็อคอินไปแล้ว")
+                        cl.sendText(msg.to,"ได้ทำการล็อคอินไปแล้ว")
                 elif msg.text.lower() == ".":
                     gs = []
                     try:
@@ -387,8 +387,8 @@ def user1script(op):
                         except:
                             kk.new_post(tlist)
                     else:
-                        cl.sendText(msg.to,"Tyfe ยังไม่ได้ล็อคอิน")
-                elif msg.text.lower() == ".tyfejoin":
+                        cl.sendText(msg.to,"ยังไม่ได้ล็อคอิน")
+                elif msg.text.lower() == ".botjoin":
                     if TyfeLogged:
                         x = cl.getGroup(msg.to)
                         if user2 not in [i.mid for i in x.members]:
@@ -417,9 +417,9 @@ def user1script(op):
                             nowM = datetime.datetime.strftime(now2,"%M")
                             nowS = datetime.datetime.strftime(now2,"%S")
                             tm = "\n\n"+nowT+":"+nowM+":"+nowS
-                            kk.sendText(msg.to,"Tyfe อยู่ในกลุ่มอยู่แล้ว (｀・ω・´)"+tm)
+                            kk.sendText(msg.to,"อยู่ในกลุ่มอยู่แล้ว"+tm)
                     else:
-                        cl.sendText(msg.to,"Tyfe ยังไม่ได้ล็อคอิน")
+                        cl.sendText(msg.to,"ยังไม่ได้ล็อคอิน")
                 elif msg.text.lower() == ".crash":
                     msg.contentType = 13
                     msg.text = None
@@ -696,7 +696,7 @@ def user2script(op):
                 nowM = datetime.datetime.strftime(now2,"%M")
                 nowS = datetime.datetime.strftime(now2,"%S")
                 tm = "\n\n"+nowT+":"+nowM+":"+nowS
-                kk.sendText(op.param1,"Tyfe พร้อมใช้งานแล้ว (｀・ω・´)"+tm)
+                kk.sendText(op.param1,"พร้อมใช้งานแล้ว"+tm)
             if op.param1 in banned and op.param2 in banned[op.param1]:
                 try:
                     kk.kickoutFromGroup(op.param1,[op.param2])
@@ -1840,9 +1840,9 @@ def user2script(op):
                     nowS = datetime.datetime.strftime(now2,"%S")
                     tm = "\n\n"+nowT+":"+nowM+":"+nowS
                     if msg.toType != 0:
-                        kk.sendText(msg.to,"คุณคือผู้สร้าง Tyfe (｀・ω・´)"+tm)
+                        kk.sendText(msg.to,"คุณคือผู้สร้าง bot (｀・ω・´)"+tm)
                     else:
-                        kk.sendText(msg.from_,"คุณคือผู้สร้าง Tyfe (｀・ω・´)"+tm)
+                        kk.sendText(msg.from_,"คุณคือผู้สร้าง bot (｀・ω・´)"+tm)
                 else:
                     now2 = datetime.datetime.now()
                     nowT = datetime.datetime.strftime(now2,"%H")
@@ -1850,9 +1850,9 @@ def user2script(op):
                     nowS = datetime.datetime.strftime(now2,"%S")
                     tm = "\n\n"+nowT+":"+nowM+":"+nowS
                     if msg.toType != 0:
-                        kk.sendText(msg.to,"คุณไม่ใช่ผู้สร้าง Tyfe (｀・ω・´)"+tm)
+                        kk.sendText(msg.to,"คุณไม่ใช่ผู้สร้าง bot (｀・ω・´)"+tm)
                     else:
-                        kk.sendText(msg.from_,"คุณไม่ใช่ผู้สร้าง Tyfe (｀・ω・´)"+tm)
+                        kk.sendText(msg.from_,"คุณไม่ใช่ผู้สร้าง bot (｀・ω・´)"+tm)
             elif msg.text.lower() == "tyfe:botprotect on":
                 if msg.from_ == user1 or msg.to in tadmin and msg.from_ in tadmin[msg.to]:
                     if msg.toType == 2:
